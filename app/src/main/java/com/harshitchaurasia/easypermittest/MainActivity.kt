@@ -1,5 +1,6 @@
 package com.harshitchaurasia.easypermittest
 
+import android.Manifest
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.harshitchaurasia.easypermissions.EasyPermit
@@ -12,11 +13,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //-----------------------Using EasyPermit Jugaad-------------------------------------------------//
+        //-----------------------Using EasyPermit Jugaad-------------------------------------------//
+        val grantPermission: EasyPermit = InitPermissions()
+        grantPermission.checkAndGetPermissions(this, arrayOf(Manifest.permission.READ_CONTACTS,
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.CAMERA
+        ))
+
+        // 0r
+        /*
         val grantPermission: EasyPermit = InitPermissions()
         grantPermission.jugaadAllPermissionsAutomatically(this)
-
-
+        */
+        //-----------------------------------------------------------------------------------------//
 
 
     }
